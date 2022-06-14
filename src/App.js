@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Header from "./Components/Header";
+import Upload from './Components/Upload';
+import { MetaMaskProvider } from "metamask-react";
+import { Web3Provider } from "./Components/Web3Context";
+import { PinataProvider } from "./Components/PinataContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <video id="background-video" src={require('./Media/background.mp4')} autoPlay muted></video>
+      <Web3Provider>
+        <MetaMaskProvider>
+          <PinataProvider>
+            <Header />
+            <Upload />
+          </PinataProvider>
+        </MetaMaskProvider>
+      </Web3Provider>
+    </>
   );
 }
 
