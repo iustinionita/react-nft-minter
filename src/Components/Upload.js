@@ -75,11 +75,11 @@ function Upload() {
       .then((res) => {
         console.log(res);
         setNFTcid(res.data.IpfsHash);
-        blockChain();
+        blockChain(res.data.IpfsHash);
       });
   }
 
-  function blockChain() {
+  function blockChain(cid) {
     const contract = new web3.eth.Contract(
       ContractJSON,
       "0x72fc0e2af831262c46a19a688c9b35c0c4053226"
@@ -87,7 +87,7 @@ function Upload() {
     const fee = web3.utils.toWei("0.01", "ether");
     // console.log(web3.eth)
     contract.methods
-      .mintNFT(web3.eth.defaultAccount, NFTcid)
+      .mintNFT(web3.eth.defaultAccount, cid)
       .send({ from: web3.eth.defaultAccount, value: fee })
       .then((receipt) => console.log(receipt));
   }
@@ -117,7 +117,7 @@ function Upload() {
               >
                 <img
                   src={require("../Images/upload.png")}
-                  alt="no-image-preview"
+                  alt="no-preview"
                   style={preview ? { display: "none" } : { display: "initial" }}
                 />
                 <p
