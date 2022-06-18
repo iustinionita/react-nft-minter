@@ -93,14 +93,26 @@ header {
     height: 100%;
     .file-upload {
       @include flex (center, center);
+      // flex-direction: column;
       gap: 30px;
       .file-preview {
         @include flex(center, center);
         flex-direction: column;
         width: 450px;
         height: 450px;
+        border-radius: 25px;
+        background-size:contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: $transition;
+        &:hover {
+          box-shadow: inset $lightshadow;
+        }
       }
       .metadata {
+        width: 450px;
+        height: 450px;
         @include flex(center, center);
         flex-direction: column;
         gap: 30px;
@@ -114,6 +126,22 @@ header {
           box-shadow: $lightshadow;
           resize: none;
           font-size: 1.3rem;
+        }
+        button {
+          width: 100%;
+          padding: 20px;
+          background: $button;
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: white;
+          border: 0;
+          border-radius: 25px;
+          box-shadow: $lightshadow;
+          transition: $transition;
+          cursor: pointer;
+          &:hover {
+            background: $button-active;
+          }
         }
       }
     }
