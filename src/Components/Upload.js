@@ -109,7 +109,7 @@ function Upload() {
             <div className="file-upload inset">
               <div
                 className="file-preview"
-                style={{ backgroundImage: `url("${preview}")` }}
+                style={{ backgroundImage: preview ? `url("${preview}")` : '' }}
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById("file").click();
