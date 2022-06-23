@@ -1,0 +1,66 @@
+@media screen and (max-width: 1400px) {
+    header {
+        position: relative;
+        width: 90%;
+        height: 100px;
+        margin: 30px auto;
+        flex-direction: row;
+        transform: translate(0, 0);
+        h1 {
+            position: relative;
+            font-size: 2.5rem;
+            line-height: normal;
+            white-space: nowrap;
+            br {
+                display: none;
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                right: -60px;
+                width: 50px;
+                height: 50px;
+                background: url(../public/favicon.ico);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+        h2 {
+            display: none;
+        }
+        button {
+            width: 200px;
+        }
+        .warning {
+            position: absolute;
+            // left: 100%;
+            width: 250px;
+            right: 0;
+            top: 0;
+            // transform: translateX(-50%);
+            height: 100%;
+            margin: 0;
+            background: white;
+            color: black;
+            border-radius: 25px;
+        }
+    }
+    .upload {
+        // display: none;  //DELETE
+        position: initial;
+        width: 90%;
+        margin: auto;
+        .file-upload-wrapper {
+            .file-upload {
+                width: 100%;
+                justify-content: space-around;
+                .file-preview, .metadata {
+                    width: 500px;
+                    height: 500px;
+                }
+            }
+        }
+    }
+}

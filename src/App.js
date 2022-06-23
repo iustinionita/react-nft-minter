@@ -1,4 +1,7 @@
 import "./App.scss";
+import "./_max1400.scss";
+import "./_max1000.scss";
+import "./_max600.scss";
 import Header from "./Components/Header";
 import Upload from './Components/Upload';
 import { MetaMaskProvider } from "metamask-react";
