@@ -84,7 +84,8 @@ header {
   // background: $bg;
   width: calc(100% - 440px);
   min-width: 700px;
-  height: 80vh;
+  height: 100%;
+  margin-top: -10vh;
   border-radius: 25px;
   input[type="file"] {
     display: none;
