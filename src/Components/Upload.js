@@ -3,11 +3,14 @@ import PinataProvider from "./PinataContext";
 import { useMetaMask } from "metamask-react";
 import Web3Provider from "./Web3Context";
 import ContractJSON from "../Config/ContractJson.json";
+import Receipt from "./Receipt";
 
 function Upload() {
   const [fileIPFS, setFileIPFS] = useState();
   const [NFTcid, setNFTcid] = useState();
   const [preview, setPreview] = useState();
+  const [receipt, setReceipt] = useState(true); // FALSE IN PRODUCTION
+  const [tx, setTx] = useState();
   const title = useRef();
   const description = useRef();
   const { pinata } = useContext(PinataProvider);
@@ -89,7 +92,10 @@ function Upload() {
     contract.methods
       .mintNFT(web3.eth.defaultAccount, cid)
       .send({ from: web3.eth.defaultAccount, value: fee })
-      .then((receipt) => console.log(receipt));
+      .then((receipt) => {
+        setTx(receipt);
+        console.log(receipt)
+      });
   }
 
   return (
@@ -109,7 +115,7 @@ function Upload() {
             <div className="file-upload inset">
               <div
                 className="file-preview"
-                style={{ backgroundImage: preview ? `url("${preview}")` : '' }}
+                style={{ backgroundImage: preview ? `url("${preview}")` : "" }}
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById("file").click();
@@ -145,13 +151,30 @@ function Upload() {
                   placeholder="NFT Description"
                   ref={description}
                 ></textarea>
-                <button onClick={uploadFile}>MINT</button>
+                <button
+                  onClick={() => {
+                    uploadFile();
+                    setReceipt(true);
+                  }}
+                >
+                  MINT
+                </button>
                 {/* <button onClick={blockChain}>Contract</button> */}
               </div>
             </div>
           </div>
         </div>
       )}
+      <Receipt
+        fileIPFS={fileIPFS}
+        NFTcid={NFTcid}
+        status={receipt}
+        changeStatus={(receipt) => setReceipt(receipt)}
+        preview={preview}
+        title={title}
+        description={description}
+        tx={tx}
+      />
     </>
   );
 }
