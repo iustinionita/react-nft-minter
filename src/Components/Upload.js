@@ -9,7 +9,7 @@ function Upload() {
   const [fileIPFS, setFileIPFS] = useState();
   const [NFTcid, setNFTcid] = useState();
   const [preview, setPreview] = useState();
-  const [receipt, setReceipt] = useState(true); // FALSE IN PRODUCTION
+  const [receipt, setReceipt] = useState(false); // FALSE IN PRODUCTION
   const [tx, setTx] = useState();
   const title = useRef();
   const description = useRef();
@@ -98,6 +98,10 @@ function Upload() {
       });
   }
 
+  function reset() {
+    setFileIPFS(null); setNFTcid(null); setPreview(null); setTx(null); title.current.value = null; description.current.value = null;
+  }
+
   return (
     <>
       {(status === "connected") & (chainId === "0x61") && (
@@ -151,15 +155,26 @@ function Upload() {
                   placeholder="NFT Description"
                   ref={description}
                 ></textarea>
-                <button
-                  onClick={() => {
-                    uploadFile();
-                    setReceipt(true);
-                  }}
-                >
-                  MINT
-                </button>
-                {/* <button onClick={blockChain}>Contract</button> */}
+                {tx ?
+                 <button
+                 onClick={() => {
+                   setReceipt(true)
+                 }}
+               >
+                 Receipt
+               </button>
+                 :
+                 <button
+                 onClick={() => {
+                   uploadFile();
+                   setReceipt(true);
+                 }}
+               >
+                 MINT
+               </button>
+                  }
+                {/* <p className="reset" onClick={reset}>&#8635; RESET</p> */}
+                {tx && <p className="reset" onClick={reset}>&#8635; RESET</p>}
               </div>
             </div>
           </div>

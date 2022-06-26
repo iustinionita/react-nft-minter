@@ -74,7 +74,7 @@ header {
   // position: absolute;
   // right: calc(50% - 175px);
   // top: 0;
-  // width: calc(90vw - 350px); 
+  // width: calc(90vw - 350px);
   // // max-width: 1000px;
   // min-width: 700px;
   // height: 80vh;
@@ -91,11 +91,11 @@ header {
   input[type="file"] {
     display: none;
   }
-  .file-upload-wrapper{
+  .file-upload-wrapper {
     @include flex(center, center);
     height: 100%;
     .file-upload {
-      @include flex (center, center);
+      @include flex(center, center);
       // flex-direction: column;
       gap: 30px;
       .file-preview {
@@ -104,7 +104,7 @@ header {
         width: 450px;
         height: 450px;
         border-radius: 25px;
-        background-size:contain;
+        background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
         cursor: pointer;
@@ -119,7 +119,8 @@ header {
         @include flex(center, center);
         flex-direction: column;
         gap: 30px;
-        input, textarea {
+        input,
+        textarea {
           // min-width: 350px;
           width: 100%;
           padding: 30px;
@@ -144,6 +145,17 @@ header {
           cursor: pointer;
           &:hover {
             background: $button-active;
+          }
+        }
+        .reset {
+          padding: 5px;
+          border-radius: 5px;
+          font-weight: 500;
+          transition: $transition;
+          cursor: pointer;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
           }
         }
       }
@@ -187,6 +199,10 @@ header {
           background-color: black;
           color: white;
           padding: 10px 15px 10px 25px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+          }
         }
         p {
           position: absolute;
@@ -211,6 +227,7 @@ header {
         list-style: none;
         li {
           h5 {
+            position: relative;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -225,7 +242,21 @@ header {
               color: white;
               padding: 10px 15px;
               margin-left: 10px;
-              font-size: .8rem;
+              font-size: 0.8rem;
+            }
+            img {
+              height: 75px;
+              position: absolute;
+              top: -50%;
+              right: 30%;
+              // border: 1px solid red;
+            }
+          }
+          &:nth-child(2) {
+            span {
+              &:hover {
+                background-color: rgba(0, 0, 0, 0.7);
+              }
             }
           }
         }
