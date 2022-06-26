@@ -12,6 +12,7 @@ function Upload() {
   const [receipt, setReceipt] = useState(false); // FALSE IN PRODUCTION
   const [tx, setTx] = useState();
   const title = useRef();
+  const [titleLength, setTitleLength] = useState(0);
   const description = useRef();
   const { pinata } = useContext(PinataProvider);
   const { web3 } = useContext(Web3Provider);
@@ -94,12 +95,17 @@ function Upload() {
       .send({ from: web3.eth.defaultAccount, value: fee })
       .then((receipt) => {
         setTx(receipt);
-        console.log(receipt)
+        console.log(receipt);
       });
   }
 
   function reset() {
-    setFileIPFS(null); setNFTcid(null); setPreview(null); setTx(null); title.current.value = null; description.current.value = null;
+    setFileIPFS(null);
+    setNFTcid(null);
+    setPreview(null);
+    setTx(null);
+    title.current.value = null;
+    description.current.value = null;
   }
 
   return (
@@ -146,6 +152,7 @@ function Upload() {
                   placeholder="Title"
                   autoComplete="off"
                   required
+                  onChange={() => setTitleLength(title.current.value.length)}
                 />
                 <textarea
                   name="desc"
@@ -155,26 +162,36 @@ function Upload() {
                   placeholder="NFT Description"
                   ref={description}
                 ></textarea>
-                {tx ?
-                 <button
-                 onClick={() => {
-                   setReceipt(true)
-                 }}
-               >
-                 Receipt
-               </button>
-                 :
-                 <button
-                 onClick={() => {
-                   uploadFile();
-                   setReceipt(true);
-                 }}
-               >
-                 MINT
-               </button>
-                  }
+                {tx ? (
+                  <button
+                    onClick={() => {
+                      setReceipt(true);
+                    }}
+                  >
+                    Receipt
+                  </button>
+                ) : preview && titleLength > 2 ? (
+                  <button
+                    onClick={() => {
+                      uploadFile();
+                      setReceipt(true);
+                    }}
+                  >
+                    MINT
+                  </button>
+                ) : (
+                  <button
+                    style={{ pointerEvents: "none", backgroundColor: "gray" }}
+                  >
+                    MINT
+                  </button>
+                )}
                 {/* <p className="reset" onClick={reset}>&#8635; RESET</p> */}
-                {tx && <p className="reset" onClick={reset}>&#8635; RESET</p>}
+                {tx && (
+                  <p className="reset" onClick={reset}>
+                    &#8635; RESET
+                  </p>
+                )}
               </div>
             </div>
           </div>
