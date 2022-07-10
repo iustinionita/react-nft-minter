@@ -40,6 +40,9 @@
         padding: 15px;
     }
     .receipt-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
         .receipt {
             .receipt-preview {
                 flex-direction: column;
