@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+## NFT Minter App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Mint your first NFT on Binance Smart Chain in 3 simple steps.
 
-## Available Scripts
+#### Requirements 
 
-In the project directory, you can run:
+- Please make sure you have MetaMask extension installed.
+- Your wallet should have at least 0.1 BNB to pay for the Smart Contract and Network fees
 
-### `npm start`
+### How does it work?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Connect your MetaMask wallet to the app using the "Connect" button. If you are using the wrong network the app will set up everything for you.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+If you're connected, just upload the NFT image, set the title and the description and click "Mint". MetaMask will ask you to approve the transaction, so click "Approve".
 
-### `npm test`
+It should take no longer than 1 minute for your NFT to be minted. If the transaction is successfull you should see the "Receipt" with the following data:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- IPFS hash for your image
+- IPFS hash for your Metadata
+- Gas used (Network Fees)
+- Transaction hash
+- NFT ID
 
-### `npm run build`
+IPFS hashes can be copied by clicking on the appropiate buttons and the Tx Hash button will redirect you to BSCscan so you can see more details about your mint transaction.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you want to add your NFT into your MetaMask wallet, please use the Mobile app as the desktop extension doesn't have this feature. (make sure you set up [BSC Testnet network - click here from your Mobile MetaMask App for automatic setup](https://umbria.network/connect/binance-smart-chain-testnet "BSC Testnet network - click here")). All you need is the contract address and the NFT ID.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contract address: [0x72FC0E2AF831262c46A19a688c9B35c0c4053226](https://testnet.bscscan.com/address/0x72fc0e2af831262c46a19a688c9b35c0c4053226 "0x72FC0E2AF831262c46A19a688c9B35c0c4053226")
