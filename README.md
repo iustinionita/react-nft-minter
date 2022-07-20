@@ -7,6 +7,21 @@ Mint your first NFT on Binance Smart Chain in 3 simple steps.
 - Please make sure you have MetaMask extension installed.
 - Your wallet should have at least 0.1 BNB to pay for the Smart Contract and Network fees
 
+------------
+
+
+##### MetaMask TEST WALLET
+
+**Please add this wallet to your MetaMask to test my project!**
+
+Click on your **Profile Picture** > **Import Account**. Make sure you import the **Private Key**!
+
+Private Key: **96500e6540837bcff174fd383ff5e7ca0aa2d0ee07685edb9fa91f65b12a6049**
+
+> Note: If it's the first time you install MetaMask you have to setup your account first and then you can import my wallet
+
+------------
+
 ### How does it work?
 
 Connect your MetaMask wallet to the app using the "Connect" button. If you are using the wrong network, the app will set up everything for you.
